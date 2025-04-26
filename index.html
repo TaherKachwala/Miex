@@ -448,6 +448,7 @@
                     <div class="col col-md-8">
                         <div class="contact-form">
                             <form id="contact-form" class="contact-validation-active">
+                            <!-- <form action="https://api.web3forms.com/submit" enctype="multipart/form-data" method="POST"> -->
                                 <div>
                                     <input type="text" id="name" name="name" class="form-control" placeholder="Full name..">
                                 </div>
@@ -459,6 +460,9 @@
                                 </div>
                                 <div>
                                     <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone no..">
+                                </div>
+                                <div>
+                                    <input type="file" id="file" name="attachment" class="form-control" placeholder="Phone no..">
                                 </div>
                                 <div>
                                     <textarea class="form-control" id="message" name="message" placeholder="Write.."></textarea>
@@ -473,6 +477,7 @@
                                     <div id="success">Thank you</div>
                                     <div id="error"> Error occurred while sending email. Please try again later. </div>
                                 </div>
+                            <!-- </form>    -->
                             </form>
                         </div>
                     </div>
@@ -482,6 +487,10 @@
                                 <h5>Call Us:</h5>
                                 <p>+971-XXX-XXX-XXXX</p>
                             </div>
+
+                            <!-- <div class="custom-uploader">
+                                <input type="file"/>
+                            </div> -->
                             
                             <div>
                                 <h5>Email:</h5>
@@ -492,9 +501,9 @@
                                 <p>[Your Office Address, Abu Dhabi, UAE]</p>
                             </div>
 
-                            <div class="custom-uploader">
+                            <!-- <div class="custom-uploader">
                                 <input type="file"/>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>
@@ -593,5 +602,41 @@
 
     <!-- Custom script for this template -->
     <script src="assets/js/script.js"></script>
+
+    <!-- Include EmailJS SDK -->
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+            <script>
+                (function() {
+                    emailjs.init("FMKUq0bcUNlIe8TCn"); // Replace with your EmailJS public key
+                  })();
+            </script>
+
+        <!-- Your form -->
+        <!-- <form id="contact-form">
+            <input type="text" name="user_name" placeholder="Your Name" required />
+            <input type="email" name="user_email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form> -->
+
+        <!-- JS to handle submission -->
+        <script>
+        document.getElementById("contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            emailjs.sendForm("service_qprv9ci", "template_syyu60a", this)
+            .then(function(response) {
+                alert("Email sent successfully!");
+            }, function(error) {
+                alert("Oops, something went wrong: " + JSON.stringify(error));
+            });
+        });
+            
+
+        </script>
+
+        
+
+    
 </body>
 </html>
