@@ -447,8 +447,9 @@
                 <div class="row contact-form-info">
                     <div class="col col-md-8">
                         <div class="contact-form">
-                            <form id="contact-form" class="contact-validation-active">
-                            <!-- <form action="https://api.web3forms.com/submit" enctype="multipart/form-data" method="POST"> -->
+                            <!-- <form id="contact-form" class="contact-validation-active"> -->
+                            <form action="https://api.web3forms.com/submit" enctype="multipart/form-data" method="POST">
+                                <input type="hidden" name="access_key" value="3c6918c9-5032-400b-9c48-e250873b8af0">
                                 <div>
                                     <input type="text" id="name" name="name" class="form-control" placeholder="Full name..">
                                 </div>
@@ -461,12 +462,13 @@
                                 <div>
                                     <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone no..">
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <input type="file" id="file" name="attachment" class="form-control" placeholder="Phone no..">
-                                </div>
+                                </div> -->
                                 <div>
                                     <textarea class="form-control" id="message" name="message" placeholder="Write.."></textarea>
                                 </div>
+                                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                                 <div class="submit">
                                     <button type="submit">Submit</button>
                                     <div id="loader">
